@@ -1,0 +1,1 @@
+# Bool.js API Core
