@@ -1,0 +1,29 @@
+{
+  "name": "booljs-core",
+  "version": "0.1.0",
+  "description": "Bool MVC Framework - API Core",
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Pablo Andrés Dorado Suárez",
+    "email": "pandres95@boolinc.co",
+    "url": "http://pandres95.boolinc.co"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha test/index.js --timeout=5000",
+    "doc": "rm -rf doc && jsdoc -c conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/boolinc/booljs-core"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1"
+  },
+  "dependencies": {
+    "object-injector": "0.0.1",
+    "q": "~1.0.1",
+    "tracer": "^0.7.3",
+    "underscore": "~1.6.0"
+  }
+}
