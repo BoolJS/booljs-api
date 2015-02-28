@@ -20,6 +20,8 @@
 
 'use strict';
 
+global.Interface = require('./lib/utils/interface');
+
 /**
  * @module booljs-core
  * @author Pablo Andrés Dorado Suárez <pandres95@boolinc.co>
@@ -27,7 +29,6 @@
  * @version 0.1.0
  * @description Bool MVC Framework - API Core
  */
-
 var injector = require('object-injector');
 var core = require('./lib/');
 
