@@ -33,7 +33,7 @@ describe('API', function(){
             var appInstance = API.Component.App.getInstance("com.boolinc.api");
 
             try{
-                appInstance.compatibleComponents();
+                appInstance.compatibleTypes();
                 done();
             } catch(x){
                 done(x);
