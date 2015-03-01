@@ -20,10 +20,11 @@
 
 'use strict';
 
-global.Interface = require('./lib/interface');
-
 var injector = require('object-injector');
+
+injector(global, { Interface: require('./lib/interface') });
+injector(global, require('./lib/globals'));
+
 var core = module.exports = require('./lib/');
 
-injector(global, core.globals);
-injector(global, core, ['API']);
+injector(global, core);
