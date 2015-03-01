@@ -20,7 +20,7 @@
 
 'use strict';
 
-global.Interface = require('./lib/utils/interface');
+global.Interface = require('./lib/interface');
 
 /**
  * @module booljs-core
