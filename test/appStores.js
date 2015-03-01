@@ -2,15 +2,19 @@
 
 describe('Configuration', function(){
 
+    var instance = API.App.getInstance('com.boolinc.api')
+    ,   Configuration = instance.getComponents().configuration;
+
+
     it('Can insert a configuration object into the store', function(done){
 
-        API.Configuration.set('db', {
+        Configuration.set('db', {
             host: 'db.boolinc.co',
             port: 3306,
             database: 'myDatabase'
         });
 
-        expect(API.Configuration.get('db')).to.eql({
+        expect(Configuration.get('db')).to.eql({
             host: 'db.boolinc.co',
             port: 3306,
             database: 'myDatabase'
@@ -31,8 +35,8 @@ describe('Configuration', function(){
         };
 
         try{
-            API.Configuration.set('dbFunction', dbFunction);
-            expect(API.Configuration.get('dbFunction')).to.eql(dbFunction);
+            Configuration.set('dbFunction', dbFunction);
+            expect(Configuration.get('dbFunction')).to.eql(dbFunction);
             done(new Error(
                 "It's possible to insert a function into the store"
             ));
@@ -45,13 +49,13 @@ describe('Configuration', function(){
     it('Can\'t rewrite a configuration object into the store', function(done){
 
         try{
-            API.Configuration.set('db', {
+            Configuration.set('db', {
                 host: 'db.boolinc.co',
                 port: 3306,
                 database: 'myDatabase'
             });
 
-            expect(API.Configuration.get('db')).to.eql({
+            expect(Configuration.get('db')).to.eql({
                 host: 'db.boolinc.co',
                 port: 3306,
                 database: 'myDatabase'
@@ -67,20 +71,20 @@ describe('Configuration', function(){
     });
 
     it("Can freeze the configuration store", function(done){
-        API.Configuration.freeze();
+        Configuration.freeze();
         done();
     });
 
     it("Can't insert a new object after store has been frozen", function(done){
 
         try{
-            API.Configuration.set('newdb', {
+            Configuration.set('newdb', {
                 host: 'db.boolinc.co',
                 port: 3306,
                 database: 'myDatabase'
             });
 
-            expect(API.Configuration.get('newdb')).to.eql({
+            expect(Configuration.get('newdb')).to.eql({
                 host: 'db.boolinc.co',
                 port: 3306,
                 database: 'myDatabase'
