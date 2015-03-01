@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Configuration', function(){
+describe('App Stores', function(){
 
     var instance = API.App.getInstance('com.boolinc.api')
     ,   Configuration = instance.getComponents().configuration;
