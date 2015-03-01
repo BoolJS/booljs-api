@@ -22,15 +22,8 @@
 
 global.Interface = require('./lib/interface');
 
-/**
- * @module booljs-core
- * @author Pablo Andrés Dorado Suárez <pandres95@boolinc.co>
- * @license GPL-3.0
- * @version 0.1.0
- * @description Bool MVC Framework - API Core
- */
 var injector = require('object-injector');
-var core = require('./lib/');
+var core = module.exports = require('./lib/');
 
 injector(global, core.globals);
 injector(global, core, ['API']);
