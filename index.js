@@ -22,6 +22,7 @@
 
 var injector = require('object-injector');
 
+injector(global, { injector: injector });
 injector(global, { Interface: require('./lib/interface') });
 injector(global, require('./lib/globals'));
 

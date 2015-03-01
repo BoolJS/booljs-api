@@ -15,4 +15,5 @@ require('..');
  */
 require('./api');
 require('./app');
+require('./appInstance');
 require('./component');
