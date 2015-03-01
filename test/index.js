@@ -14,3 +14,5 @@ require('..');
  * Loads tests
  */
 require('./api');
+require('./app');
+require('./component');
