@@ -17,4 +17,3 @@ require('./api');
 require('./app');
 require('./appInstance');
 require('./component');
-require('./configuration');

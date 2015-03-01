@@ -27,28 +27,46 @@ describe('App', function(){
             } catch(x){}
 
             anApp = App.getInstance("com.boolinc.dogapi");
+            var configuration   = anApp.getComponents().configuration
+            ,   utilities       = anApp.getComponents().utilities;
+
             expect(anApp.getSkeleton()).to.eql({
                 com: {
                     boolinc: {
-                        dogapi: {}
+                        dogapi: {
+                            configuration: configuration,
+                            utilities: utilities
+                        }
                     }
                 }
             });
 
             aSecondApp = App.getInstance("com.bool_inc.dogapi");
+            var configuration   = aSecondApp.getComponents().configuration
+            ,   utilities       = aSecondApp.getComponents().utilities;
+
             expect(aSecondApp.getSkeleton()).to.eql({
                 com: {
                     bool_inc: {
-                        dogapi: {}
+                        dogapi: {
+                            configuration: configuration,
+                            utilities: utilities
+                        }
                     }
                 }
             });
 
             aThirdApp = App.getInstance("com.bool_inc.dog2api");
+            var configuration   = aThirdApp.getComponents().configuration
+            ,   utilities       = aThirdApp.getComponents().utilities;
+
             expect(aThirdApp.getSkeleton()).to.eql({
                 com: {
                     bool_inc: {
-                        dog2api: {}
+                        dog2api: {
+                            configuration: configuration,
+                            utilities: utilities
+                        }
                     }
                 }
             });

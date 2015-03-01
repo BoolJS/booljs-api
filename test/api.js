@@ -9,7 +9,6 @@ describe('API', function(){
         expect(apiKeys).to.eql([
             'App',
             'Component',
-            'Configuration',
             'Error',
             'Loader'
         ]);

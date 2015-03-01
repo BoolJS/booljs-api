@@ -2,13 +2,23 @@
 
 describe('App Instance', function(){
 
-    var instance = API.App.getInstance('com.boolinc.dogapi');
+    var instance        = API.App.getInstance('com.boolinc.dogapi')
+    ,   configuration   = instance.getComponents().configuration
+    ,   utilities       = instance.getComponents().utilities;
 
     it('Should add a component in the root of application', function(done){
 
         instance.insertComponent('controllers', {});
         expect(instance.getSkeleton()).to.eql({
-            com: { boolinc: { dogapi: { controllers: {} } } }
+            com: {
+                boolinc: {
+                    dogapi: {
+                        configuration: configuration,
+                        controllers: { },
+                        utilities: utilities
+                    }
+                }
+            }
         });
         done();
 
@@ -22,7 +32,15 @@ describe('App Instance', function(){
 
         expect(instance.getSkeleton()).to.eql({
             com: {
-                boolinc: { dogapi: { controllers: { HomeController: {} } } }
+                boolinc: {
+                    dogapi: {
+                        configuration: configuration,
+                        controllers: {
+                            HomeController: { }
+                        },
+                        utilities: utilities
+                    }
+                }
             }
         });
         done();
@@ -58,10 +76,16 @@ describe('App Instance', function(){
 
         expect(instance.getSkeleton()).to.eql({
             com: {
-                boolinc: { dogapi: { controllers: {
-                    HomeController: {},
-                    MathController: MathController
-                } } }
+                boolinc: {
+                    dogapi: {
+                        configuration: configuration,
+                        controllers: {
+                            HomeController: { },
+                            MathController: MathController
+                        },
+                        utilities: utilities
+                    }
+                }
             }
         });
         done();
@@ -77,12 +101,18 @@ describe('App Instance', function(){
 
         expect(instance.getSkeleton()).to.eql({
             com: {
-                boolinc: { dogapi: { controllers: {
-                    HomeController: {
-                        ViewController: ViewController
-                    },
-                    MathController: MathController
-                } } }
+                boolinc: {
+                    dogapi: {
+                        configuration: configuration,
+                        controllers: {
+                            HomeController: {
+                                ViewController: ViewController
+                            },
+                            MathController: MathController
+                        },
+                        utilities: utilities
+                    }
+                }
             }
         });
         done();
@@ -108,11 +138,17 @@ describe('App Instance', function(){
 
         expect(instance.getSkeleton()).to.eql({
             com: {
-                boolinc: { dogapi: { controllers: {
-                    HomeController: {
-                        ViewController: ViewController
+                boolinc: {
+                    dogapi: {
+                        configuration: configuration,
+                        controllers: {
+                            HomeController: {
+                                ViewController: ViewController
+                            }
+                        },
+                        utilities: utilities
                     }
-                } } }
+                }
             }
         });
         done();
