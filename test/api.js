@@ -6,7 +6,13 @@ describe('API', function(){
     function(done){
 
         var apiKeys = Object.keys(API);
-        expect(apiKeys).to.eql(['App', 'Component', 'Error', 'Loader']);
+        expect(apiKeys).to.eql([
+            'App',
+            'Component',
+            'Configuration',
+            'Error',
+            'Loader'
+        ]);
         done();
 
     });
