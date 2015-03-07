@@ -20,8 +20,8 @@
 
 'use strict';
 
-require('object-injector')(global, require('./lib/globals'));
+require('object-injector')(global, require('./globals'));
 
 var core = module.exports = require('./lib/');
 
-injector(global, core);
+if(!global.API) injector(global, { API: core });
