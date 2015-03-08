@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha test/index.js --timeout=5000",
+    "test": "NODE_ENV=test mocha test/index.js",
     "doc": "rm -rf doc && jsdoc -c conf.json"
   },
   "repository": {
