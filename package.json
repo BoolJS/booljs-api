@@ -18,7 +18,7 @@
     "url": "http://github.com/boolinc/booljs-core"
   },
   "devDependencies": {
-    "expect.js": "~0.3.1"
+    "expect.js": "^0.3.1"
   },
   "dependencies": {
     "object-injector": "0.0.2",
