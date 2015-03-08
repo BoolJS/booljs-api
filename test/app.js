@@ -1,5 +1,7 @@
 'use strict';
 
+var API = require('..');
+
 describe('App', function(){
 
     it(
@@ -79,6 +81,7 @@ describe('App', function(){
     it("Applications created can be listed", function(done){
 
         expect(API.App.listInstances()).to.eql([
+            "com.boolinc.api",
             "com.boolinc.dogapi",
             "com.bool_inc.dogapi",
             "com.bool_inc.dog2api"

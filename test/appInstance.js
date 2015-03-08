@@ -1,8 +1,10 @@
 'use strict';
 
+var API = require('..');
+
 describe('App Instance', function(){
 
-    var instance        = API.App.getInstance('com.boolinc.dogapi')
+    var instance        = API.App.getInstance('com.boolinc.api')
     ,   configuration   = instance.getComponents().configuration
     ,   utilities       = instance.getComponents().utilities;
 
@@ -12,7 +14,7 @@ describe('App Instance', function(){
         expect(instance.getSkeleton()).to.eql({
             com: {
                 boolinc: {
-                    dogapi: {
+                    api: {
                         configuration: configuration,
                         controllers: { },
                         utilities: utilities
@@ -33,7 +35,7 @@ describe('App Instance', function(){
         expect(instance.getSkeleton()).to.eql({
             com: {
                 boolinc: {
-                    dogapi: {
+                    api: {
                         configuration: configuration,
                         controllers: {
                             HomeController: { }
@@ -77,7 +79,7 @@ describe('App Instance', function(){
         expect(instance.getSkeleton()).to.eql({
             com: {
                 boolinc: {
-                    dogapi: {
+                    api: {
                         configuration: configuration,
                         controllers: {
                             HomeController: { },
@@ -102,7 +104,7 @@ describe('App Instance', function(){
         expect(instance.getSkeleton()).to.eql({
             com: {
                 boolinc: {
-                    dogapi: {
+                    api: {
                         configuration: configuration,
                         controllers: {
                             HomeController: {
@@ -123,7 +125,7 @@ describe('App Instance', function(){
 
         var com = instance.getSkeleton().com, MathController;
 
-        MathController = new com.boolinc.dogapi.controllers.MathController();
+        MathController = new com.boolinc.api.controllers.MathController();
 
         expect(MathController.add(2, 2)).to.eql(4);
         done();
@@ -139,7 +141,7 @@ describe('App Instance', function(){
         expect(instance.getSkeleton()).to.eql({
             com: {
                 boolinc: {
-                    dogapi: {
+                    api: {
                         configuration: configuration,
                         controllers: {
                             HomeController: {

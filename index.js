@@ -21,7 +21,4 @@
 'use strict';
 
 require('object-injector')(global, require('./globals'));
-
-var core = module.exports = require('./lib/');
-
-if(!global.API) injector(global, { API: core });
+module.exports = require('./lib/');

@@ -6,14 +6,10 @@
 global.expect = require('expect.js');
 
 /**
- * Loads Core API
- */
-require('..');
-
-/**
  * Loads tests
  */
 require('./api');
 require('./app');
 require('./appInstance');
+require('./appStores');
 require('./component');

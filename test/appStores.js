@@ -1,5 +1,7 @@
 'use strict';
 
+var API = require('..');
+
 describe('App Stores', function(){
 
     var instance = API.App.getInstance('com.boolinc.api')
