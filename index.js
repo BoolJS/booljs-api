@@ -20,5 +20,5 @@
 
 'use strict';
 
-require('object-injector')(global, require('./globals'));
+require('booljs-globals');
 module.exports = require('./lib/');
