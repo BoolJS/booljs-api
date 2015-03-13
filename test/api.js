@@ -1,6 +1,7 @@
 'use strict';
 
-var API = require('..');
+var API = require('..')
+,   expect = require('expect.js');
 
 describe('API', function(){
 });

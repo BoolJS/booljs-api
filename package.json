@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha test/index.js",
+    "test": "NODE_ENV=test mocha --recursive test",
     "doc": "rm -rf doc && jsdoc -c conf.json"
   },
   "repository": {
