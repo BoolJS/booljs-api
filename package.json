@@ -1,26 +1,25 @@
 {
-  "name": "booljs-core",
-  "version": "0.0.1",
-  "description": "Bool MVC Framework - API Core",
-  "license": "GPL-3.0",
-  "author": {
-    "name": "Pablo Andrés Dorado Suárez",
-    "email": "pandres95@boolinc.co",
-    "url": "http://pandres95.boolinc.co"
-  },
-  "main": "index.js",
-  "scripts": {
-    "test": "NODE_ENV=test mocha --recursive test",
-    "doc": "rm -rf doc && jsdoc -c .jsdoc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/boolinc/booljs-core"
-  },
-  "devDependencies": {
-    "expect.js": "^0.3.1"
-  },
-  "dependencies": {
-    "booljs-globals": "^0.0.1"
-  }
+    "name": "booljs-core",
+    "version": "0.0.1",
+    "description": "Bool MVC Framework - API Core",
+    "license": "GPL-3.0",
+    "author": {
+        "name": "Pablo Andrés Dorado Suárez",
+        "email": "pandres95@boolinc.co",
+        "url": "http://pandres95.boolinc.co"
+    },
+    "scripts": {
+        "test": "NODE_ENV=test mocha --recursive test",
+        "doc": "rm -rf doc && jsdoc -c .jsdoc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/boolinc/booljs-core"
+    },
+    "devDependencies": {
+        "expect.js": "^0.3.1"
+    },
+    "dependencies": {
+        "booljs-globals": "^0.0.1"
+    }
 }
