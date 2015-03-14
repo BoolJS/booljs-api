@@ -10,7 +10,8 @@
     },
     "scripts": {
         "test": "NODE_ENV=test mocha --recursive test",
-        "doc": "rm -rf doc && jsdoc -c .jsdoc"
+        "predoc": "rm -rf doc",
+        "doc": "jsdoc -c .jsdoc"
     },
     "repository": {
         "type": "git",
