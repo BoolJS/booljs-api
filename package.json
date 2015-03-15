@@ -1,5 +1,5 @@
 {
-    "name": "booljs-core",
+    "name": "booljs-api",
     "version": "0.0.1",
     "description": "Bool MVC Framework - API Core",
     "license": "GPL-3.0",
