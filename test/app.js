@@ -1,3 +1,4 @@
+/* global describe, it */
 'use strict';
 
 var API = require('..')
@@ -12,7 +13,7 @@ describe('App', function(){
             var App = API.App;
 
             var badNamespaceApp, secondBadNamespace, thirdBadNamespace;
-            var anApp, aSecondApp, aThirdApp;
+            var anApp, aSecondApp, aThirdApp, configuration, utilities;
 
             try {
                 badNamespaceApp = App.getInstance("my.bad-namespace.1app");
@@ -29,9 +30,9 @@ describe('App', function(){
                 done(new Error("The namespace checker is failing"));
             } catch(x){}
 
-            anApp = App.getInstance("com.boolinc.dogapi");
-            var configuration   = anApp.getComponents().configuration
-            ,   utilities       = anApp.getComponents().utilities;
+            anApp           = App.getInstance("com.boolinc.dogapi");
+            configuration   = anApp.getComponents().configuration;
+            utilities       = anApp.getComponents().utilities;
 
             expect(anApp.getSkeleton()).to.eql({
                 com: {
@@ -44,9 +45,9 @@ describe('App', function(){
                 }
             });
 
-            aSecondApp = App.getInstance("com.bool_inc.dogapi");
-            var configuration   = aSecondApp.getComponents().configuration
-            ,   utilities       = aSecondApp.getComponents().utilities;
+            aSecondApp      = App.getInstance("com.bool_inc.dogapi");
+            configuration   = aSecondApp.getComponents().configuration;
+            utilities       = aSecondApp.getComponents().utilities;
 
             expect(aSecondApp.getSkeleton()).to.eql({
                 com: {
@@ -59,9 +60,9 @@ describe('App', function(){
                 }
             });
 
-            aThirdApp = App.getInstance("com.bool_inc.dog2api");
-            var configuration   = aThirdApp.getComponents().configuration
-            ,   utilities       = aThirdApp.getComponents().utilities;
+            aThirdApp       = App.getInstance("com.bool_inc.dog2api");
+            configuration   = aThirdApp.getComponents().configuration;
+            utilities       = aThirdApp.getComponents().utilities;
 
             expect(aThirdApp.getSkeleton()).to.eql({
                 com: {
