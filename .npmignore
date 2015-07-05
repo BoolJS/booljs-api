@@ -1,8 +1,8 @@
-doc
+example
 test
-sample
-.jsdoc
+
 .gitignore
-.DS_Store
-LICENSE
-README.md
+.jshintrc
+.travis.yml
+jsdoc.json
+inch.json
