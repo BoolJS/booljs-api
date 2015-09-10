@@ -1,3 +1,4 @@
+/* global describe, before, it */
 'use strict';
 
 var API = require('..')
