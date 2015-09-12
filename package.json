@@ -24,7 +24,7 @@
     "mocha": "^2.2.4"
   },
   "dependencies": {
-    "booljs-globals": "0.0.3"
+    "booljs-globals": "0.0.4"
   },
   "engines": {
     "node": ">=4.0.0"
