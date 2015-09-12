@@ -1,6 +1,6 @@
 {
   "name": "booljs-api",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Bool MVC Framework - API Core",
   "main": "lib/index.js",
   "license": "GPL-3.0",
@@ -24,9 +24,9 @@
     "mocha": "^2.2.4"
   },
   "dependencies": {
-    "booljs-globals": "0.0.2"
+    "booljs-globals": "0.0.3"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4.0.0"
   }
 }
