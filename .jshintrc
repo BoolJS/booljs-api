@@ -3,6 +3,7 @@
     "laxcomma": true,
     "unused": false,
     "undef": false,
+    "esnext": true,
     "predef": [
         "PATH",
         "log",
