@@ -6,9 +6,8 @@ var API = require('..')
 
 describe('Plugins', function(){
 
-    it('creates a middleware and registers it', function(done){
+    it('creates a middleware and registers it', function(){
         new API.Middleware('middleware1');
-        done();
     });
 
     it('Fails integrity check for a new Middleware plugin', function(done){
@@ -21,10 +20,14 @@ describe('Plugins', function(){
         }
     });
 
-    it('Gets a list of middleware plugins', function(done){
+    it('Gets a list of middleware plugins', function(){
         var store = API.Plugins.getInstance();
         expect(store.list(API.Middleware)).to.have.length(2);
-        done();
+    });
+
+    it('Look for an specific middleware', function () {
+        var store = API.Plugins.getInstance();
+        expect(store.get('middleware1', API.Middleware)).to.be.ok();
     });
 
 });
