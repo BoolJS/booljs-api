@@ -7,13 +7,13 @@ var API = require('..')
 describe('Plugins', function(){
 
     it('creates a middleware and registers it', function(done){
-        API.Plugins.register(new API.Plugins.Middleware());
+        API.Plugins.register(new API.Middleware());
         done();
     });
 
     it('Fails integrity check for a new Middleware plugin', function(done){
         try {
-            var middleware = new API.Plugins.Middleware();
+            var middleware = new API.Middleware();
             middleware.checkIntegrity();
             done(new Error('Passed without error'));
         } catch(err){
@@ -22,7 +22,7 @@ describe('Plugins', function(){
     });
 
     it('Gets a list of middleware plugins', function(done){
-        expect(API.Plugins.get('middleware')).to.have.length(1);
+        expect(API.Plugins.list('middleware')).to.have.length(1);
         done();
     });
 
