@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: app/index.js</title>
+    <title>JSDoc: Source: plugins/base.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: app/index.js</h1>
+    <h1 class="page-title">Source: plugins/base.js</h1>
 
     
 
@@ -28,48 +28,62 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-var AppInstance     = require('./instance')
-,   instancePool    = {};
+var Store       = require('.')
+,   BoolError   = require('../error')
+,   store       = Store.getInstance();
 
 /**
- * @class App
- * @memberof API
- * @description Serves as point for retrieving applications. Defined itself
- * as a Singleton pool.
+ * @class BasePlugin
+ * @description Base class for plugins design
  */
-module.exports = {
+module.exports = class BasePlugin {
+    /**
+     * @constructor
+     * @description Constructor for BasePlugin
+     * @param  {String} type - Type of plugin
+     * @param  {String} name - Name of plugin, must be unique
+     * @param  {Object} functions - Base
+     * @param  {String[]} dependants -
+     */
+    constructor(name, functions, requiredFunctions, dependants) {
+        dependants = dependants || [];
+        functions = functions || {};
 
-    /**
-     * @function API.App.listInstances
-     * @description List instances in pool.
-     * @return {String[]} An array with the namespaces of the instances in
-     * the pool.
-     */
-    listInstances: function(){
-        return Object.keys(instancePool);
-    },
-    /**
-     * @function API.App.getInstance
-     * @description Gets instance of an application from the pool.
-     * @param {String} namespace - The namespace of the application.
-     * @return {API.Component.AppInstance} The application object.
-     */
-    getInstance: function(namespace){
-        if(instancePool[namespace] === undefined){
-            var newInstance = new AppInstance(namespace);
-            instancePool[namespace] = newInstance;
+        this.name = name;
+        for(var dependant in dependants){
+            try{
+                var Dependant = require(dependants[dependant]);
+                new Dependant();
+            } catch (err) {
+                throw err;
+            }
         }
-        return instancePool[namespace];
-    },
-    /**
-     * @function API.App.removeInstance
-     * @description Removes instance of an application from the pool.
-     * @param {String} namespace - The namespace of the application.
-     */
-    removeInstance: function(namespace){
-        delete instancePool[namespace];
+
+        for(var key in requiredFunctions){
+            var fn = requiredFunctions[key];
+            if(functions[fn]) {
+                this[fn] = functions[fn];
+            } else {
+                this[fn] = undefined;
+            }
+        }
+
+        store.register(this);
     }
 
+    /**
+     * @function BasePlugin#checkIntegrity
+     * @description Checks a middleware plugin implements its mandatory fields.
+     * @throws {BoolError} In case a field is not implemented
+     */
+    checkIntegrity(){
+        for(var key in this){
+            if(!this[key]) throw new BoolError(
+                0, "EINTEGRITYFAILED",
+                "Integrity check for plugin has failed"
+            );
+        }
+    }
 };
 </code></pre>
         </article>

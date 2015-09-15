@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: API</title>
+    <title>JSDoc: Source: plugins/classes/server_loader.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,115 +17,33 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: API</h1>
+    <h1 class="page-title">Source: plugins/classes/server_loader.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        API
-        </h2>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">The classes from Bool MVC Framework API</div>
-        
+var BasePlugin = require('../base');
 
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="API.App.html">App</a></dt>
-            <dd></dd>
-        
-            <dt><a href="API.AppInstance.html">AppInstance</a></dt>
-            <dd></dd>
-        
-            <dt><a href="API.Error.html">Error</a></dt>
-            <dd></dd>
-        
-            <dt><a href="API.Middleware.html">Middleware</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+/**
+ * @class ServerLoader
+ * @description
+ */
+module.exports = class ServerLoader extends BasePlugin {
+    constructor(name, functions, dependents) {
+        super(name, functions, [
+            'init', 'middleware', 'router', 'boot'
+        ], dependents);
+    }
+};
+</code></pre>
+        </article>
+    </section>
 
 
 

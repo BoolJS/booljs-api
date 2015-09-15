@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: app/instance/components.js</title>
+    <title>JSDoc: Source: error.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: app/instance/components.js</h1>
+    <h1 class="page-title">Source: error.js</h1>
 
     
 
@@ -28,60 +28,74 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
+var util = require('util');
+
 /**
- * @class AppComponents
- * @memberof API.Instance
- * @description Creates a store for holding up Application components, in case
- * is needed by application.
+ * @class Error
+ * @memberof API
+ * @description Creates a Bool.js custom Error
+ * @param {Number} [status=500] - Status code for HTTP response.
+ * @param {String} code - The error code.
+ * @param {String} message - General description of error.
+ * @param {String} uri - URI to get more information about error.
+ * @return {API.Error} An {@link API.Error} instance.
  */
-module.exports = function(){
-
-    var _components = {};
-
-    return {
-
-        /**
-         * @function API.AppInstance#insertComponent
-         * @description Inserts a component into the AppInstance namespace
-         * scheme.
-         * @param {String} name - The name of the component to be inserted.
-         * @param {API.Component.BaseComponent} component - The component to be
-         * inserted.
-         * @param {Object} [position] - The position where is being inserted,
-         * otherwise will appear at the root of components skeleton.
-         */
-        insertComponent: function(name, component, position){
-            Object.defineProperty(position || _components, name, {
-                value: component,
-                writable: true,
-                enumerable: true,
-                configurable: true
-            });
-        },
-
-        /**
-         * @function API.AppInstance#getComponents
-         * @description Retrieves the instance of application components
-         * @returns {API.Component.BaseComponent[]} The internal components of the
-         * application
-         */
-        getComponents: function(){
-            return _components;
-        },
-
-        /**
-         * @function API.AppInstance#removeComponent
-         * @description Removes a previous inserted component.
-         * @param {String} name - The name of the component to be removed.
-         * @param {Object} [position] - The position where is being removed,
-         * otherwise will look into the root of components skeleton.
-         */
-        removeComponent: function(name, position){
-            delete (position || _components)[name];
+module.exports = class BoolError extends Error {
+    constructor(status, code, message, uri) {
+        super();
+        // Executed in case first argument is `code`.
+        if(!(typeof status === 'number' &amp;&amp; (status % 1) === 0)) {
+            status = 500;
+            code = status || 'server_error';
+            message = code || null;
+            uri = message || null;
+        } else {
+            status = status || 500;
+            code = code || 'server_error';
+            message = message || null;
+            uri = uri || null;
         }
 
-    };
 
+        /**
+         * @value name
+         * @description Name of error
+         * @memberof API.Error
+         * @type {String}
+         */
+        this.name = this.constructor.name;
+        /**
+         * @value status
+         * @description Status Code for HTTP response.
+         * @memberof API.Error
+         * @type {Number}
+         * @default 500
+         */
+        this.status = status;
+        /**
+         * @value code
+         * @description The error code.
+         * @memberof API.Error
+         * @type {String}
+         */
+        this.code = code;
+        /**
+         * @value message
+         * @description General description of error.
+         * @memberof API.Error
+         * @type {String}
+         */
+        this.message = message;
+        /**
+         * @value uri
+         * @description URI to get more information about error
+         * @memberof API.Error
+         * @type {String}
+         */
+        this.uri = uri;
+
+        this.stack = (new Error()).stack;
+    }
 };
 </code></pre>
         </article>

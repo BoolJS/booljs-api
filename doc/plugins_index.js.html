@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: API</title>
+    <title>JSDoc: Source: plugins/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,115 +17,77 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: API</h1>
+    <h1 class="page-title">Source: plugins/index.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        API
-        </h2>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">The classes from Bool MVC Framework API</div>
-        
+let instance = null;
+var BoolError = require('../error');
 
-        
+/**
+ * @class PluginStore
+ * Store plugins
+ */
+module.exports = class PluginStore {
+    static getInstance(){
+        if(instance === null){
+            instance = new PluginStore();
+        }
+        return instance;
+    }
 
+    constructor() {
+        this._store = [];
+    }
 
-<dl class="details">
+    /**
+     * @function get
+     * @description Retrieves a plugin identified by its name
+     * @param  {String} name - The name of the plugin to retrieve
+     * @return {BasePlugin} A plugin
+     */
+    get(name) {
+        var plugins = _.filter(this._store, function (plugin) {
+            return plugin.name === name;
+        });
+        if(plugins.length !== 1) return undefined;
+        return plugins[0];
+    }
 
-    
+    /**
+     * @function list
+     * Retrieves a list of plugins filtered by type
+     * @param  {String} type - The type of plugins to retrieve
+     * @return {BasePlugin[]} An array containing plugins of specified type
+     */
+    list(type){
+        return _.filter(this._store, function (plugin) {
+            return plugin instanceof type;
+        });
+    }
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="API.App.html">App</a></dt>
-            <dd></dd>
-        
-            <dt><a href="API.AppInstance.html">AppInstance</a></dt>
-            <dd></dd>
-        
-            <dt><a href="API.Error.html">Error</a></dt>
-            <dd></dd>
-        
-            <dt><a href="API.Middleware.html">Middleware</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    /**
+     * @function register
+     * Registers a plugin.
+     * @param {BasePlugin} plugin - A plugin to be registered in store
+     */
+    register(plugin) {
+        if(this.get(plugin.name) === undefined){
+            this._store.push(plugin);
+        }
+        return instance;
+    }
+};
+</code></pre>
+        </article>
+    </section>
 
 
 

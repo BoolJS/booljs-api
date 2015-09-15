@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: App</title>
+    <title>JSDoc: Global</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: App</h1>
+    <h1 class="page-title">Global</h1>
 
     
 
@@ -29,9 +29,7 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="API.html">API</a>.</span>
         
-        App
         </h2>
         
     
@@ -42,29 +40,7 @@
     
         
 
-    
-
-    <h4 class="name" id="App"><span class="type-signature"></span>new App<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Serves as point for retrieving applications. Defined itself
-as a Singleton pool.
-</div>
-
-
-
-
-
-
-
-
-
-
-
+        
 
 
 <dl class="details">
@@ -94,11 +70,6 @@ as a Singleton pool.
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_index.js.html">app/index.js</a>, <a href="app_index.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
 
     
 
@@ -108,20 +79,7 @@ as a Singleton pool.
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
     
     </div>
 
@@ -145,14 +103,14 @@ as a Singleton pool.
 
     
 
-    <h4 class="name" id=".getInstance"><span class="type-signature">(static) </span>getInstance<span class="signature">(namespace)</span><span class="type-signature"> &rarr; {API.Component.AppInstance}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(name)</span><span class="type-signature"> &rarr; {<a href="BasePlugin.html">BasePlugin</a>}</span></h4>
 
     
 
 
 
 <div class="description">
-    Gets instance of an application from the pool.
+    Retrieves a plugin identified by its name
 </div>
 
 
@@ -188,7 +146,7 @@ as a Singleton pool.
 
         <tr>
             
-                <td class="name"><code>namespace</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
@@ -204,7 +162,7 @@ as a Singleton pool.
 
             
 
-            <td class="description last">The namespace of the application.</td>
+            <td class="description last">The name of the plugin to retrieve</td>
         </tr>
 
     
@@ -245,7 +203,7 @@ as a Singleton pool.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_index.js.html">app/index.js</a>, <a href="app_index.js.html#line23">line 23</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -272,7 +230,7 @@ as a Singleton pool.
 
         
 <div class="param-desc">
-    The application object.
+    A plugin
 </div>
 
 
@@ -283,7 +241,7 @@ as a Singleton pool.
     </dt>
     <dd>
         
-<span class="param-type">API.Component.AppInstance</span>
+<span class="param-type"><a href="BasePlugin.html">BasePlugin</a></span>
 
 
     </dd>
@@ -298,120 +256,12 @@ as a Singleton pool.
 
     
 
-    <h4 class="name" id=".listInstances"><span class="type-signature">(static) </span>listInstances<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;String>}</span></h4>
+    <h4 class="name" id="listRetrievesalistofpluginsfilteredbytype"><span class="type-signature"></span>list
+Retrieves a list of plugins filtered by type<span class="signature">(type)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="BasePlugin.html">BasePlugin</a>>}</span></h4>
 
     
 
 
-
-<div class="description">
-    List instances in pool.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_index.js.html">app/index.js</a>, <a href="app_index.js.html#line14">line 14</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    An array with the namespaces of the instances in
-the pool.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;String></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".removeInstance"><span class="type-signature">(static) </span>removeInstance<span class="signature">(namespace)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Removes instance of an application from the pool.
-</div>
 
 
 
@@ -446,7 +296,7 @@ the pool.
 
         <tr>
             
-                <td class="name"><code>namespace</code></td>
+                <td class="name"><code>type</code></td>
             
 
             <td class="type">
@@ -462,7 +312,7 @@ the pool.
 
             
 
-            <td class="description last">The namespace of the application.</td>
+            <td class="description last">The type of plugins to retrieve</td>
         </tr>
 
     
@@ -503,7 +353,157 @@ the pool.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_index.js.html">app/index.js</a>, <a href="app_index.js.html#line36">line 36</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    An array containing plugins of specified type
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="BasePlugin.html">BasePlugin</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="registerRegistersaplugin."><span class="type-signature"></span>register
+Registers a plugin.<span class="signature">(plugin)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>plugin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="BasePlugin.html">BasePlugin</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A plugin to be registered in store</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line48">line 48</a>
     </li></ul></dd>
     
 
