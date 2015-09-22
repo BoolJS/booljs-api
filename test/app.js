@@ -1,8 +1,9 @@
 /* global describe, it */
 'use strict';
 
-var API = require('..')
-,   expect = require('expect.js');
+var API     = require('..')
+,   expect  = require('expect.js')
+,   resolve = require('../lib/utilities/resolve');
 
 describe('App', function(){
 
@@ -80,13 +81,20 @@ describe('App', function(){
         }
     );
 
+    it('Creates an application using dependencies', function () {
+        API.App.getInstance('com.bool_inc.dog3api', [
+            resolve('example/plugin1.js')
+        ]);
+    });
+
     it("Applications created can be listed", function(done){
 
         expect(API.App.listInstances()).to.eql([
             "com.boolinc.api",
             "com.boolinc.dogapi",
             "com.bool_inc.dogapi",
-            "com.bool_inc.dog2api"
+            "com.bool_inc.dog2api",
+            "com.bool_inc.dog3api"
         ]);
 
         done();
