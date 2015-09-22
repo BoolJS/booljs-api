@@ -29,10 +29,7 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="API.html">API</a>.</span>
-        
-        AppInstance
-        </h2>
+            <span class="ancestors"><a href="API.html">API</a>.</span>AppInstance</h2>
         
     
 </header>
@@ -44,7 +41,7 @@
 
     
 
-    <h4 class="name" id="AppInstance"><span class="type-signature"></span>new AppInstance<span class="signature">(namespace)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="AppInstance"><span class="type-signature"></span>new AppInstance<span class="signature">(namespace, dependencies<span class="signature-attributes">nullable</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -76,6 +73,8 @@ Is generated from <a href="API.App.html">App</a>.
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -101,10 +100,51 @@ Is generated from <a href="API.App.html">App</a>.
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
             <td class="description last">The namespace of the application</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;String></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                    &lt;nullable><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A list of packages that instance depends</td>
         </tr>
 
     
@@ -297,7 +337,7 @@ Is generated from <a href="API.App.html">App</a>.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_index.js.html">app/instance/index.js</a>, <a href="app_instance_index.js.html#line30">line 30</a>
+        <a href="app_instance_index.js.html">app/instance/index.js</a>, <a href="app_instance_index.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -416,7 +456,7 @@ Is generated from <a href="API.App.html">App</a>.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_index.js.html">app/instance/index.js</a>, <a href="app_instance_index.js.html#line37">line 37</a>
+        <a href="app_instance_index.js.html">app/instance/index.js</a>, <a href="app_instance_index.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -599,7 +639,7 @@ application
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_index.js.html">app/instance/index.js</a>, <a href="app_instance_index.js.html#line41">line 41</a>
+        <a href="app_instance_index.js.html">app/instance/index.js</a>, <a href="app_instance_index.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -1461,7 +1501,7 @@ conventions.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="API.App.html">App</a></li><li><a href="API.AppInstance.html">AppInstance</a></li><li><a href="API.AppInstance.Store.html">Store</a></li><li><a href="API.Error.html">Error</a></li><li><a href="API.Instance.AppComponents.html">AppComponents</a></li><li><a href="API.Middleware.html">Middleware</a></li><li><a href="API.Plugins.DatabaseLoader.html">DatabaseLoader</a></li><li><a href="BasePlugin.html">BasePlugin</a></li><li><a href="module.exports.html">exports</a></li><li><a href="ServerLoader.html">ServerLoader</a></li></ul><h3>Namespaces</h3><ul><li><a href="API.html">API</a></li></ul><h3>Global</h3><ul><li><a href="global.html#get">get</a></li><li><a href="global.html#listRetrievesalistofpluginsfilteredbytype">list
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="API.App.html">App</a></li><li><a href="API.AppInstance.html">AppInstance</a></li><li><a href="API.AppInstance.Store.html">Store</a></li><li><a href="API.Error.html">Error</a></li><li><a href="API.Instance.AppComponents.html">AppComponents</a></li><li><a href="API.Middleware.html">Middleware</a></li><li><a href="API.Plugins.DatabaseLoader.html">DatabaseLoader</a></li><li><a href="API.RouteMiddleware.html">RouteMiddleware</a></li><li><a href="BasePlugin.html">BasePlugin</a></li><li><a href="module.exports.html">exports</a></li><li><a href="ServerLoader.html">ServerLoader</a></li></ul><h3>Namespaces</h3><ul><li><a href="API.html">API</a></li></ul><h3>Global</h3><ul><li><a href="global.html#get">get</a></li><li><a href="global.html#listRetrievesalistofpluginsfilteredbytype">list
 Retrieves a list of plugins filtered by type</a></li><li><a href="global.html#registerRegistersaplugin.">register
 Registers a plugin.</a></li></ul>
 </nav>
@@ -1469,7 +1509,7 @@ Registers a plugin.</a></li></ul>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Tue Sep 15 2015 20:03:38 GMT-0500 (COT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Tue Sep 22 2015 00:05:46 GMT-0500 (COT)
 </footer>
 
 <script> prettyPrint(); </script>

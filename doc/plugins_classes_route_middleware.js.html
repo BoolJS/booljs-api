@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: AppComponents</title>
+    <title>JSDoc: Source: plugins/classes/route_middleware.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,130 +17,32 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: AppComponents</h1>
+    <h1 class="page-title">Source: plugins/classes/route_middleware.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>AppComponents</h2>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+var Middleware = require('./middleware');
 
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    <h4 class="name" id="AppComponents"><span class="type-signature"></span>new AppComponents<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Creates a store for holding up Application components, in case
-is needed by application.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_components.js.html">app/instance/components.js</a>, <a href="app_instance_components.js.html#line3">line 3</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+/**
+ * @class RouteMiddleware
+ * @memberof API
+ * @description RouteMiddleware defines a middleware to be activated with route
+ * policies. Those can be mandatory or omittable.
+ */
+module.exports = class RouteMiddleware extends Middleware {
+    constructor(name, functions, dependants) {
+        super(name, functions, dependants, [ 'type', 'policies' ]);
+    }
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
