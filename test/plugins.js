@@ -22,7 +22,7 @@ describe('Plugins', function(){
 
     it('Gets a list of middleware plugins', function(){
         var store = API.Plugins.getInstance();
-        expect(store.list(API.Middleware)).to.have.length(2);
+        expect(store.list(API.Middleware)).to.have.length(3);
     });
 
     it('Look for an specific middleware', function () {
