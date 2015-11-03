@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Store</title>
+    <title>JSDoc: Class: PluginStore</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Store</h1>
+    <h1 class="page-title">Class: PluginStore</h1>
 
     
 
@@ -28,8 +28,7 @@
 
 <header>
     
-        <h2>
-            <span class="ancestors"><a href="API.html">API</a><a href="API.AppInstance.html">.AppInstance</a>.</span>Store</h2>
+        <h2>PluginStore</h2>
         
     
 </header>
@@ -41,16 +40,14 @@
 
     
 
-    <h4 class="name" id="Store"><span class="type-signature"></span>new Store<span class="signature">(isExecutable<span class="signature-attributes">nullable</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="PluginStore"><span class="type-signature"></span>new PluginStore<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Store for multiple purposes, mainly used in configurations and
-utilities objects. Must be frozen before the application finishes the
-bootstraping step where object insertion is needed.
+    Store plugins
 </div>
 
 
@@ -59,68 +56,6 @@ bootstraping step where object insertion is needed.
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>isExecutable</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-                    &lt;nullable><br>
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Determines wheter store can contain some
-executable code.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -156,7 +91,7 @@ executable code.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_store.js.html">app/instance/store.js</a>, <a href="app_instance_store.js.html#line3">line 3</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -205,16 +140,14 @@ executable code.</td>
 
     
 
-    <h4 class="name" id="freeze"><span class="type-signature"></span>freeze<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".getInstance"><span class="type-signature">(static) </span>getInstance<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="PluginStore.html">PluginStore</a>}</span></h4>
 
     
 
 
 
 <div class="description">
-    Freezes the store, avoiding it to be modified through
-the application lifecycle. Must be called inmediatly after the last
-related object is inserted into it.
+    Retrieves a copy of the running plugin store instance.
 </div>
 
 
@@ -258,7 +191,7 @@ related object is inserted into it.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_store.js.html">app/instance/store.js</a>, <a href="app_instance_store.js.html#line45">line 45</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -281,6 +214,28 @@ related object is inserted into it.
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A running instance
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="PluginStore.html">PluginStore</a></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -289,14 +244,14 @@ related object is inserted into it.
 
     
 
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(name)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(name)</span><span class="type-signature"> &rarr; {<a href="BasePlugin.html">BasePlugin</a>}</span></h4>
 
     
 
 
 
 <div class="description">
-    Retrieves a property from the store.
+    Retrieves a plugin identified by its name
 </div>
 
 
@@ -348,7 +303,7 @@ related object is inserted into it.
 
             
 
-            <td class="description last">The key of the property in the store.</td>
+            <td class="description last">The name of the plugin to retrieve</td>
         </tr>
 
     
@@ -389,7 +344,7 @@ related object is inserted into it.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_store.js.html">app/instance/store.js</a>, <a href="app_instance_store.js.html#line18">line 18</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -416,7 +371,7 @@ related object is inserted into it.
 
         
 <div class="param-desc">
-    The stored property.
+    A plugin
 </div>
 
 
@@ -427,7 +382,7 @@ related object is inserted into it.
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type"><a href="BasePlugin.html">BasePlugin</a></span>
 
 
     </dd>
@@ -442,118 +397,14 @@ related object is inserted into it.
 
     
 
-    <h4 class="name" id="getStore"><span class="type-signature"></span>getStore<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(type)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="BasePlugin.html">BasePlugin</a>>}</span></h4>
 
     
 
 
 
 <div class="description">
-    Retrieves the store instance
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_store.js.html">app/instance/store.js</a>, <a href="app_instance_store.js.html#line55">line 55</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    An instance of the store
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="set"><span class="type-signature"></span>set<span class="signature">(name, value)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Stores an object.
+    Retrieves a list of plugins filtered by type
 </div>
 
 
@@ -589,7 +440,7 @@ related object is inserted into it.
 
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>type</code></td>
             
 
             <td class="type">
@@ -605,30 +456,7 @@ related object is inserted into it.
 
             
 
-            <td class="description last">The key of the object to be stored.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The object to be stored.</td>
+            <td class="description last">The type of plugins to retrieve</td>
         </tr>
 
     
@@ -669,7 +497,160 @@ related object is inserted into it.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app_instance_store.js.html">app/instance/store.js</a>, <a href="app_instance_store.js.html#line27">line 27</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    An array containing plugins of specified type
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="BasePlugin.html">BasePlugin</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">(plugin)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Registers a plugin.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>plugin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="BasePlugin.html">BasePlugin</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A plugin to be registered in store</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
