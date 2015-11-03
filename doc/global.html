@@ -92,6 +92,157 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="TypesEnum"><span class="type-signature"></span>TypesEnum<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    Enumeration of possible types
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>mandatory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>omittable</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="plugins_classes_route_middleware.js.html">plugins/classes/route_middleware.js</a>, <a href="plugins_classes_route_middleware.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -546,7 +697,7 @@ Retrieves a list of plugins filtered by type<span class="signature">(type)</span
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line38">line 38</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line34">line 34</a>
     </li></ul></dd>
     
 
@@ -599,7 +750,111 @@ Retrieves a list of plugins filtered by type<span class="signature">(type)</span
 
     
 
-    <h4 class="name" id="modelTemplate"><span class="type-signature"></span>modelTemplate<span class="signature">(name)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="modelConfiguration"><span class="type-signature"></span>modelConfiguration<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Retrieves a template for a new configuration file.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="plugins_classes_database_loader.js.html">plugins/classes/database_loader.js</a>, <a href="plugins_classes_database_loader.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The configuration template.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="modelTemplate"><span class="type-signature"></span>modelTemplate<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
 
     
 
@@ -615,55 +870,6 @@ Retrieves a list of plugins filtered by type<span class="signature">(type)</span
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the model to be created.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -722,6 +928,28 @@ Retrieves a list of plugins filtered by type<span class="signature">(type)</span
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The model template.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -977,7 +1205,7 @@ Registers a plugin.<span class="signature">(plugin)</span><span class="type-sign
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line48">line 48</a>
+        <a href="plugins_index.js.html">plugins/index.js</a>, <a href="plugins_index.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -1020,14 +1248,14 @@ Registers a plugin.<span class="signature">(plugin)</span><span class="type-sign
 
 <nav>
     <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="API.App.html">App</a></li><li><a href="API.AppInstance.html">AppInstance</a></li><li><a href="API.AppInstance.Store.html">Store</a></li><li><a href="API.Error.html">Error</a></li><li><a href="API.Instance.AppComponents.html">AppComponents</a></li><li><a href="API.Middleware.html">Middleware</a></li><li><a href="API.Plugins.DatabaseLoader.html">DatabaseLoader</a></li><li><a href="API.RouteMiddleware.html">RouteMiddleware</a></li><li><a href="BasePlugin.html">BasePlugin</a></li><li><a href="module.exports.html">exports</a></li><li><a href="ServerLoader.html">ServerLoader</a></li></ul><h3>Namespaces</h3><ul><li><a href="API.html">API</a></li></ul><h3>Global</h3><ul><li><a href="global.html#fetchModels">fetchModels</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#listRetrievesalistofpluginsfilteredbytype">list
-Retrieves a list of plugins filtered by type</a></li><li><a href="global.html#modelTemplate">modelTemplate</a></li><li><a href="global.html#openDatabase">openDatabase</a></li><li><a href="global.html#registerRegistersaplugin.">register
-Registers a plugin.</a></li></ul>
+Retrieves a list of plugins filtered by type</a></li><li><a href="global.html#modelConfiguration">modelConfiguration</a></li><li><a href="global.html#modelTemplate">modelTemplate</a></li><li><a href="global.html#openDatabase">openDatabase</a></li><li><a href="global.html#registerRegistersaplugin.">register
+Registers a plugin.</a></li><li><a href="global.html#TypesEnum">TypesEnum</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Wed Sep 23 2015 19:52:25 GMT-0500 (COT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Tue Nov 03 2015 05:49:53 GMT-0500 (COT)
 </footer>
 
 <script> prettyPrint(); </script>
