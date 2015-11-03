@@ -6,30 +6,34 @@ var API     = require('..')
 ,   resolve = require('../lib/utilities/resolve');
 
 describe('App', function(){
+    var App = API.App;
 
-    it(
-        "App namespace generator must check correctly bad namespaces and " +
-        "generate a skeleton for good ones", function(done){
+    describe('Namespaces', () => {
 
-            var App = API.App;
+        it('fail on bad forms', (done) => {
+                var badNamespaceApp, secondBadNamespace, thirdBadNamespace;
 
-            var badNamespaceApp, secondBadNamespace, thirdBadNamespace;
+                try {
+                    badNamespaceApp = App.getInstance("my.bad-namespace.1app");
+                    done(new Error("The namespace checker is failing"));
+                } catch(x){}
+
+                try {
+                    secondBadNamespace = App.getInstance("my.bad_namespace.1app");
+                    done(new Error("The namespace checker is failing"));
+                } catch(x){}
+
+                try {
+                    thirdBadNamespace = App.getInstance("my.:bad_namespace.app2");
+                    done(new Error("The namespace checker is failing"));
+                } catch(x){}
+
+                done();
+            }
+        );
+
+        it('create skeletons for good forms', () => {
             var anApp, aSecondApp, aThirdApp, configuration, utilities;
-
-            try {
-                badNamespaceApp = App.getInstance("my.bad-namespace.1app");
-                done(new Error("The namespace checker is failing"));
-            } catch(x){}
-
-            try {
-                secondBadNamespace = App.getInstance("my.bad_namespace.1app");
-                done(new Error("The namespace checker is failing"));
-            } catch(x){}
-
-            try {
-                thirdBadNamespace = App.getInstance("my.:bad_namespace.app2");
-                done(new Error("The namespace checker is failing"));
-            } catch(x){}
 
             anApp           = App.getInstance("com.boolinc.dogapi");
             configuration   = anApp.getComponents().configuration;
@@ -75,42 +79,37 @@ describe('App', function(){
                     }
                 }
             });
-
-            done();
-
-        }
-    );
-
-    it('Creates an application using dependencies', function () {
-        API.App.getInstance('com.bool_inc.dog3api', [
-            resolve('example/plugin1.js')
-        ]);
-    });
-
-    it("Applications created can be listed", function(done){
-
-        expect(API.App.listInstances()).to.eql([
-            "com.boolinc.api",
-            "com.boolinc.dogapi",
-            "com.bool_inc.dogapi",
-            "com.bool_inc.dog2api",
-            "com.bool_inc.dog3api"
-        ]);
-
-        done();
+        });
 
     });
 
-    it("Applications created in pool can be removed", function(done){
+    describe('Builder', () => {
+        it('creates an application using dependencies', () => {
+            App.getInstance('com.bool_inc.dog3api', [
+                resolve('example/plugin1.js')
+            ]);
+        });
+    });
 
-        var App = API.App;
 
-        App.removeInstance("com.boolinc.dogapi");
-        App.removeInstance("com.bool_inc.dogapi");
-        App.removeInstance("com.bool_inc.dog2api");
+    describe('Applications Pool', () => {
 
-        done();
+        it("applications created can be listed", () => {
+            expect(App.listInstances()).to.eql([
+                "com.boolinc.api",
+                "com.boolinc.dogapi",
+                "com.bool_inc.dogapi",
+                "com.bool_inc.dog2api",
+                "com.bool_inc.dog3api"
+            ]);
+        });
 
+        it("applications created in pool can be removed", () => {
+
+            App.removeInstance("com.boolinc.dogapi");
+            App.removeInstance("com.bool_inc.dogapi");
+            App.removeInstance("com.bool_inc.dog2api");
+        });
     });
 
 });

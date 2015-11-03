@@ -1,58 +1,18 @@
-/* global describe, before, it */
+/* global describe, before, it */ /* jshint -W030 */
 'use strict';
 
-var API = require('..')
-,   expect = require('expect.js');
+var API     = require('..')
+,   expect  = require('expect.js');
 
-describe('App Stores', function(){
+describe('App Stores', () => {
+    var instance        = API.App.getInstance('com.boolinc.api')
+    ,   Configuration   = instance.getComponents().configuration
+    ,   Utilities       = instance.getComponents().utilities;
 
-    var instance = API.App.getInstance('com.boolinc.api')
-    ,   Configuration = instance.getComponents().configuration;
+    describe('Non-code stores', () => {
 
+        it('inserts an object into the store', () =>{
 
-    it('Can insert a configuration object into the store', function(done){
-
-        Configuration.set('db', {
-            host: 'db.boolinc.co',
-            port: 3306,
-            database: 'myDatabase'
-        });
-
-        expect(Configuration.get('db')).to.eql({
-            host: 'db.boolinc.co',
-            port: 3306,
-            database: 'myDatabase'
-        });
-
-        done();
-
-    });
-
-    it('Can\'t insert a function into the store', function(done){
-
-        var dbFunction = function(){
-            return {
-                host: 'db.boolinc.co',
-                port: 3306,
-                database: 'myDatabase'
-            };
-        };
-
-        try{
-            Configuration.set('dbFunction', dbFunction);
-            expect(Configuration.get('dbFunction')).to.eql(dbFunction);
-            done(new Error(
-                "It's possible to insert a function into the store"
-            ));
-        } catch(x){
-            done();
-        }
-
-    });
-
-    it('Can\'t rewrite a configuration object into the store', function(done){
-
-        try{
             Configuration.set('db', {
                 host: 'db.boolinc.co',
                 port: 3306,
@@ -64,44 +24,101 @@ describe('App Stores', function(){
                 port: 3306,
                 database: 'myDatabase'
             });
+        });
 
-            done(new Error(
-                "It's possible to rewrite a previously stored configuration"
-            ));
-        } catch(x){
-            done();
-        }
+        it(`fails at inserting a function into the store`, (done) =>{
+
+            var dbFunction = function(){
+                return {
+                    host: 'db.boolinc.co',
+                    port: 3306,
+                    database: 'myDatabase'
+                };
+            };
+
+            try{
+                Configuration.set('dbFunction', dbFunction);
+                expect(Configuration.get('dbFunction')).to.exist;
+                done(new Error(
+                    "It's possible to insert a function into the store"
+                ));
+            } catch(x){
+                done();
+            }
+
+        });
+
+        it('Fails at rewriting an object into the store', (done) => {
+
+            try{
+                Configuration.set('db', {
+                    host: 'db.boolinc.co',
+                    port: 3306,
+                    database: 'myDatabase'
+                });
+
+                expect(Configuration.get('db')).to.eql({
+                    host: 'db.boolinc.co',
+                    port: 3306,
+                    database: 'myDatabase'
+                });
+
+                done(new Error(
+                    "It's possible to rewrite a previously " +
+                    "stored configuration"
+                ));
+            } catch(x){
+                done();
+            }
+        });
+
+        it('Freezes the configuration store', () => {
+            Configuration.freeze();
+        });
+
+        it('Fails inserting objects in a frozen store', (done) => {
+
+            try{
+                Configuration.set('newdb', {
+                    host: 'db.boolinc.co',
+                    port: 3306,
+                    database: 'myDatabase'
+                });
+
+                expect(Configuration.get('newdb')).to.eql({
+                    host: 'db.boolinc.co',
+                    port: 3306,
+                    database: 'myDatabase'
+                });
+
+                done(new Error(
+                    "It's still possible to insert configurations " +
+                    "when store is frozen"
+                ));
+            } catch(x){
+                done();
+            }
+        });
 
     });
 
-    it("Can freeze the configuration store", function(done){
-        Configuration.freeze();
-        done();
-    });
+    describe('Code stores', () => {
 
-    it("Can't insert a new object after store has been frozen", function(done){
+        it(`allows inserting a function into the store`, () =>{
 
-        try{
-            Configuration.set('newdb', {
-                host: 'db.boolinc.co',
-                port: 3306,
-                database: 'myDatabase'
-            });
+            var dbFunction = function(){
+                return {
+                    host: 'db.boolinc.co',
+                    port: 3306,
+                    database: 'myDatabase'
+                };
+            };
 
-            expect(Configuration.get('newdb')).to.eql({
-                host: 'db.boolinc.co',
-                port: 3306,
-                database: 'myDatabase'
-            });
-
-            done(new Error(
-                "It's still possible to insert configurations after store " +
-                "been frozen"
-            ));
-        } catch(x){
-            done();
-        }
+            Utilities.set('dbFunction', dbFunction);
+            expect(Utilities.get('dbFunction')).to.exist;
+        });
 
     });
+
 
 });
