@@ -123,6 +123,17 @@ settings.
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="BasePlugin.html">BasePlugin</a></li>
+    </ul>
+
+
+    
 
     
 
@@ -142,7 +153,7 @@ settings.
 
     
 
-    <h4 class="name" id="action"><span class="type-signature"></span>action<span class="signature">()</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id="action"><span class="type-signature"></span>action<span class="signature">(_instance, router, route<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
 
     
 
@@ -158,6 +169,132 @@ settings.
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_instance</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="API.AppInstance.html">API.AppInstance</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An instance of the
+currently running application.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>router</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">API.Router</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The router object. Allows middleware
+create new routes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>route</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">API.Route</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A route object. Describes the
+definition of a route.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -193,7 +330,7 @@ settings.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="plugins_classes_middleware.js.html">plugins/classes/middleware.js</a>, <a href="plugins_classes_middleware.js.html#line13">line 13</a>
+        <a href="plugins_classes_middleware.js.html">plugins/classes/middleware.js</a>, <a href="plugins_classes_middleware.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -242,6 +379,122 @@ settings.
 
 
         
+            
+
+    
+
+    <h4 class="name" id="checkIntegrity"><span class="type-signature"></span>checkIntegrity<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Checks a middleware plugin implements its mandatory fields.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="BasePlugin.html#checkIntegrity">BasePlugin#checkIntegrity</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="plugins_base.js.html">plugins/base.js</a>, <a href="plugins_base.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        In case a field is not implemented
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">BoolError</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+
+
+
+        
     
 
     
@@ -257,13 +510,13 @@ settings.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="API.App.html">App</a></li><li><a href="API.AppInstance.html">AppInstance</a></li><li><a href="API.AppInstance.Store.html">Store</a></li><li><a href="API.DatabaseLoader.html">DatabaseLoader</a></li><li><a href="API.Error.html">Error</a></li><li><a href="API.Instance.AppComponents.html">AppComponents</a></li><li><a href="API.Middleware.html">Middleware</a></li><li><a href="API.RouteMiddleware.html">RouteMiddleware</a></li><li><a href="BasePlugin.html">BasePlugin</a></li><li><a href="PluginStore.html">PluginStore</a></li><li><a href="ServerLoader.html">ServerLoader</a></li></ul><h3>Namespaces</h3><ul><li><a href="API.html">API</a></li></ul><h3>Global</h3><ul><li><a href="global.html#policies">policies</a></li><li><a href="global.html#type">type</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="API.App.html">App</a></li><li><a href="API.AppInstance.html">AppInstance</a></li><li><a href="API.AppInstance.Store.html">Store</a></li><li><a href="API.DatabaseLoader.html">DatabaseLoader</a></li><li><a href="API.Error.html">Error</a></li><li><a href="API.Instance.AppComponents.html">AppComponents</a></li><li><a href="API.Middleware.html">Middleware</a></li><li><a href="API.RouteMiddleware.html">RouteMiddleware</a></li><li><a href="API.ServerLoader.html">ServerLoader</a></li><li><a href="BasePlugin.html">BasePlugin</a></li><li><a href="PluginStore.html">PluginStore</a></li></ul><h3>Namespaces</h3><ul><li><a href="API.html">API</a></li></ul><h3>Global</h3><ul><li><a href="global.html#policies">policies</a></li><li><a href="global.html#type">type</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Tue Nov 03 2015 22:21:29 GMT-0500 (COT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Thu Dec 24 2015 02:56:55 GMT-0500 (COT)
 </footer>
 
 <script> prettyPrint(); </script>
