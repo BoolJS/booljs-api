@@ -205,7 +205,7 @@ http server, by using the application server.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="plugins_classes_server_loader.js.html">plugins/classes/server_loader.js</a>, <a href="plugins_classes_server_loader.js.html#line70">line 70</a>
+        <a href="plugins_classes_server_loader.js.html">plugins/classes/server_loader.js</a>, <a href="plugins_classes_server_loader.js.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -529,7 +529,7 @@ currently running application.</td>
 
     
 
-    <h4 class="name" id="middleware"><span class="type-signature"></span>middleware<span class="signature">(_instance, application, middleware)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="middleware"><span class="type-signature"></span>middleware<span class="signature">(_instance, router, middleware)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -597,7 +597,7 @@ currently running application.</td>
 
         <tr>
             
-                <td class="name"><code>application</code></td>
+                <td class="name"><code>router</code></td>
             
 
             <td class="type">
@@ -613,7 +613,7 @@ currently running application.</td>
 
             
 
-            <td class="description last">The application server instance.</td>
+            <td class="description last">The router to be handled</td>
         </tr>
 
     
@@ -730,7 +730,7 @@ currently running application.</td>
 
     
 
-    <h4 class="name" id="postroute"><span class="type-signature"></span>postroute<span class="signature">(_instance, router)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="postroute"><span class="type-signature"></span>postroute<span class="signature">(_instance, server, router)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -798,6 +798,29 @@ currently running application.</td>
 
         <tr>
             
+                <td class="name"><code>server</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An application server instance.</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>router</code></td>
             
 
@@ -855,7 +878,7 @@ currently running application.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="plugins_classes_server_loader.js.html">plugins/classes/server_loader.js</a>, <a href="plugins_classes_server_loader.js.html#line60">line 60</a>
+        <a href="plugins_classes_server_loader.js.html">plugins/classes/server_loader.js</a>, <a href="plugins_classes_server_loader.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -908,7 +931,7 @@ currently running application.</td>
 
     
 
-    <h4 class="name" id="preroute"><span class="type-signature"></span>preroute<span class="signature">(_instance)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="preroute"><span class="type-signature"></span>preroute<span class="signature">(_instance, server)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -972,6 +995,29 @@ as well as routes to retrieve them to the route function.
 
             <td class="description last">An instance of the
 currently running application.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>server</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An application server instance.</td>
         </tr>
 
     
@@ -1065,7 +1111,7 @@ currently running application.</td>
 
     
 
-    <h4 class="name" id="route"><span class="type-signature"></span>route<span class="signature">(_instance, middleware, route)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="route"><span class="type-signature"></span>route<span class="signature">(_instance, router, middleware, route)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -1129,6 +1175,29 @@ as well as routes to retrieve them to the route function.
 
             <td class="description last">An instance of the
 currently running application.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>router</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The router to be handled</td>
         </tr>
 
     
@@ -1216,7 +1285,7 @@ middleware associated to the route.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="plugins_classes_server_loader.js.html">plugins/classes/server_loader.js</a>, <a href="plugins_classes_server_loader.js.html#line46">line 46</a>
+        <a href="plugins_classes_server_loader.js.html">plugins/classes/server_loader.js</a>, <a href="plugins_classes_server_loader.js.html#line47">line 47</a>
     </li></ul></dd>
     
 
@@ -1286,7 +1355,7 @@ middleware associated to the route.</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Thu Dec 24 2015 02:56:55 GMT-0500 (COT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Thu Dec 24 2015 05:23:42 GMT-0500 (COT)
 </footer>
 
 <script> prettyPrint(); </script>
