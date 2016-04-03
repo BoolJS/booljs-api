@@ -1,6 +1,6 @@
 # Bool.js - API Core
 
-[![Build Status](https://travis-ci.org/BoolJS/booljs-api.svg?branch=master)](https://travis-ci.org/BoolJS/booljs-api) [![Dependencies status for bool.js](https://david-dm.org/booljs/booljs-api.svg)](https://david-dm.org/booljs/booljs-api) [![devDependency Status](https://david-dm.org/booljs/booljs-api/dev-status.svg)](https://david-dm.org/booljs/booljs-api#info=devDependencies) [![Code Climate](https://codeclimate.com/github/BoolJS/booljs-api/badges/gpa.svg)](https://codeclimate.com/github/BoolJS/booljs-api) [![Inline docs](http://inch-ci.org/github/booljs/booljs-api.svg?branch=master)](http://inch-ci.org/github/booljs/booljs-api)
+[![Build Status](https://travis-ci.org/BoolJS/booljs-api.svg?branch=master)](https://travis-ci.org/BoolJS/booljs-api) [![Dependencies status for bool.js](https://david-dm.org/booljs/booljs-api.svg)](https://david-dm.org/booljs/booljs-api) [![devDependency Status](https://david-dm.org/booljs/booljs-api/dev-status.svg)](https://david-dm.org/booljs/booljs-api#info=devDependencies) [![Code Climate](https://codeclimate.com/github/BoolJS/booljs-api/badges/gpa.svg)](https://codeclimate.com/github/BoolJS/booljs-api) [![Inline docs](http://inch-ci.org/github/booljs/booljs-api.svg?branch=master)](http://inch-ci.org/github/booljs/booljs-api) [![API Doc](https://doclets.io/BoolJS/booljs-api/master.svg)](https://doclets.io/BoolJS/booljs-api/master)
 
 [![Bool.js NPM icon](https://nodei.co/npm/booljs-api.png)](https://npmjs.com/packages/booljs-api)
 
