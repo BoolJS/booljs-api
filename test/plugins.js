@@ -1,73 +1,85 @@
-/* global describe, before, it */ /* jshint -W030 */
+/* global describe, it */ /* jshint -W030 */
 'use strict';
 
-var API         = require('..')
-,   expect      = require('expect.js')
-,   BoolError   = API.Error;
+var API     = require('..')
+,   expect  = require('expect.js');
 
 describe('Plugins', () => {
 
     describe('Middleware', () => {
-
-        it('creates a middleware and registers it', () => {
-            new API.Middleware('middleware1');
+        it('fails to register new middleware: not fully implemented', () => {
+            class DummyMiddleware extends API.Middleware {
+                constructor(){
+                    super('middleware1');
+                }
+            }
+            return new Promise(function () {
+                return new DummyMiddleware();
+            }).then(
+                () => new Error('Plugin registration should fail.')
+            ).catch(() => {});
         });
 
-        it('fails integrity check for a new Middleware plugin', () => {
-            var middleware = new API.Middleware('middeware2');
-            try {
-                middleware.checkIntegrity();
-            } catch(err){}
+        it('successfully registers a new middleware', () => {
+            class TestMiddleware extends API.Middleware {
+                constructor(){
+                    super('middleware1');
+                }
+
+                action(req, res, next){
+                    next();
+                }
+            }
+            new TestMiddleware();
         });
     });
 
     describe('Route middleware', () => {
-        var store = API.Plugins.getInstance();
+        it('registers a valid route middleware', () => {
+            class TestRouteMiddleware extends API.RouteMiddleware {
+                constructor() {
+                    super('route-middleware', 'mandatory', {
+                        always: true
+                    });
+                }
 
-        it('checks components are valid', () => {
-            new API.RouteMiddleware('mand_middleware', {
-                type: 'mandatory',
-                policies: {
-                    always: true
-                },
-                action: function (req, res, next) {
+                action(req, res, next) {
                     next();
                 }
-            });
-
-            store.get('mand_middleware', API.RouteMiddleware)
-                .checkIntegrity();
+            }
+            new TestRouteMiddleware();
         });
 
         it('fails integrity check on invalid type', () => {
-            new API.RouteMiddleware('omit_middleware', {
-                type: 'invalid',
-                policies: {
-                    always: true
-                },
-                action: function (req, res, next) {
+            class TestInvalidRouteMiddleware extends API.RouteMiddleware {
+                constructor(){
+                    super('invalid-middleware', 'invalid', {
+                        always: true
+                    });
+                }
+                action(req, res, next) {
                     next();
                 }
-            });
+            }
 
-            try {
-                store.get('omit_middleware', API.RouteMiddleware)
-                    .checkIntegrity();
-            } catch(err){}
+            return new Promise(function () {
+                return new TestInvalidRouteMiddleware();
+            }).then(
+                () => new Error('Plugin registration should fail.')
+            ).catch(() => {});
         });
 
     });
 
     describe('Store', () => {
-        var store = API.Plugins.getInstance();
 
         it('gets a list of middleware plugins', () => {
-            expect(store.list(API.Middleware)).to.have.length(3);
-            expect(store.list(API.RouteMiddleware)).to.have.length(2);
+            expect(API.Plugins.list(API.RouteMiddleware)).to.have.length(2);
+            expect(API.Plugins.list(API.Middleware)).to.have.length(2);
         });
 
         it('looks for an specific middleware', () => {
-            expect(store.get('middleware1', API.Middleware)).to.be.ok;
+            expect(API.Plugins.get('plugin1')).to.be.ok;
         });
     });
 
