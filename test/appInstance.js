@@ -1,8 +1,8 @@
-/* global describe, before, it */
+/* global describe, it */
 'use strict';
 
 var API = require('..')
-,   expect = require('expect.js');
+,   expect  = require('chai').expect;
 
 describe('App Instance', () => {
 

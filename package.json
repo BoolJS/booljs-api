@@ -19,7 +19,7 @@
     "url": "http://github.com/booljs/booljs-api"
   },
   "devDependencies": {
-    "expect.js": "^0.3.1",
+    "chai": "^3.5.0",
     "jsdoc": "^3.4.0",
     "mocha": "^2.2.4"
   },

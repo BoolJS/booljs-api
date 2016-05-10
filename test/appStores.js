@@ -1,8 +1,8 @@
-/* global describe, before, it */ /* jshint -W030 */
+/* global describe, it */ /* jshint -W030 */
 'use strict';
 
 var API     = require('..')
-,   expect  = require('expect.js');
+,   expect  = require('chai').expect;
 
 describe('App Stores', () => {
     var instance        = API.App.getInstance('com.boolinc.api')

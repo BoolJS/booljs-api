@@ -2,7 +2,7 @@
 'use strict';
 
 var API     = require('..')
-,   expect  = require('expect.js');
+,   expect  = require('chai').expect;
 
 describe('Plugins', () => {
 
@@ -79,7 +79,7 @@ describe('Plugins', () => {
         });
 
         it('looks for an specific middleware', () => {
-            expect(API.Plugins.get('plugin1')).to.be.ok;
+            expect(API.Plugins.get('example-middleware')).to.exist;
         });
     });
 

@@ -2,7 +2,7 @@
 'use strict';
 
 var API     = require('..')
-,   expect  = require('expect.js')
+,   expect  = require('chai').expect
 ,   resolve = require('../lib/utilities/resolve');
 
 describe('App', function(){
