@@ -1,6 +1,6 @@
 {
   "name": "booljs-api",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "Bool MVC Framework - API Core",
   "main": "lib/index.js",
   "license": "GPL-3.0",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "jsdoc": "jsdoc3/jsdoc",
+    "jsdoc": "^3.4.0",
     "mocha": "^2.2.4"
   },
   "dependencies": {

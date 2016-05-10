@@ -86,7 +86,7 @@ describe('App', function(){
     describe('Builder', () => {
         it('creates an application using dependencies', () => {
             App.getInstance('com.bool_inc.dog3api', [
-                resolve('example/plugin1.js')
+                resolve('example/plugin.js')
             ]);
         });
     });
