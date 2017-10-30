@@ -1,19 +1,15 @@
-/* global describe, it */
 'use strict';
 
-var API = require('..')
-,   expect  = require('chai').expect;
+const { App } = require('..');
+const expect  = require('chai').expect;
 
 describe('App Instance', () => {
-
-    var instance        = API.App.getInstance('com.boolinc.api')
-    ,   configuration   = instance.getComponents().configuration
-    ,   utilities       = instance.getComponents().utilities;
+    let instance = App.getInstance('com.boolinc.api');
+    let configuration = instance.getComponents().configuration;
+    let utilities = instance.getComponents().utilities;
 
     describe('Component Manager', () => {
-
-        it('adds a component in the root of application', (done) => {
-
+        it('adds a component in the root of application', () => {
             instance.insertComponent('controllers', {});
             expect(instance.getSkeleton()).to.eql({
                 com: {
@@ -26,15 +22,11 @@ describe('App Instance', () => {
                     }
                 }
             });
-            done();
-
         });
 
         it('adds a component in the controllers namespace', () => {
-
             instance.insertComponent(
-                'HomeController', {},
-                instance.getComponents().controllers
+                'HomeController', {}, instance.getComponents().controllers
             );
 
             expect(instance.getSkeleton()).to.eql({
@@ -48,18 +40,15 @@ describe('App Instance', () => {
                     }
                 }
             });
-
         });
-
     });
 
     describe('Controllers', () => {
-
-        var MathController = function() {
+        var MathController = function () {
             this.add = (a, b) => { return a + b; };
         };
 
-        var ViewController = function() {
+        var ViewController = function () {
             this.hello = (name) => { return `Hello ${name}`; };
         };
 
@@ -105,19 +94,16 @@ describe('App Instance', () => {
                     }
                 }
             });
-
         });
 
         it('finds a controller, using it', () => {
-            var api = instance.getSkeleton().com.boolinc.api
-            ,   MathController;
+            const api = instance.getSkeleton().com.boolinc.api;
 
-            MathController = new api.controllers.MathController();
+            const MathController = new api.controllers.MathController();
             expect(MathController.add(2, 2)).to.eql(4);
         });
 
         it('removes a controller', () => {
-
             instance.removeComponent(
                 'MathController', instance.getComponents().controllers
             );
@@ -138,7 +124,5 @@ describe('App Instance', () => {
                 }
             });
         });
-
     });
-
 });
