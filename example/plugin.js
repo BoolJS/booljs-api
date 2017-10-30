@@ -1,12 +1,12 @@
 'use strict';
 
-var API = require('..');
+const { Middleware } = require('..');
 
-module.exports = class ExampleMiddleware extends API.Middleware {
-    constructor(){
-        super('example-middleware');
+module.exports = class ExampleMiddleware extends Middleware {
+    constructor () {
+        super('example-middleware', [ require.resolve('./dependant-class') ]);
     }
-    action(req, res, next) {
+    action (req, res, next) {
         next();
     }
 };
