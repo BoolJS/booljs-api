@@ -49,7 +49,7 @@ describe('App Stores', () => {
                 port: 3306,
                 database: 'myDatabase'
             })).to.throw(TypeError,
-                `Cannot define property:newdb, object is not extensible.`
+                `Cannot define property newdb, object is not extensible.`
             );
         });
     });
