@@ -1,13 +1,13 @@
 {
   "name": "booljs.api",
-  "version": "0.4.1",
-  "description": "Bool MVC Framework - API Core",
+  "version": "0.5.0",
+  "description": "Bool.js - API Core",
   "main": "lib/index.js",
   "license": "GPL-3.0",
   "author": {
     "name": "Pablo Andrés Dorado Suárez",
-    "email": "pandres95@gentebool.com",
-    "url": "http://community.gentebool.com/pandres95"
+    "email": "im@pandres95.me",
+    "url": "http://bool.js.org/~pandres95"
   },
   "scripts": {
     "pretest": "eslint **/*.js",
