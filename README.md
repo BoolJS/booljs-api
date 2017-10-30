@@ -14,7 +14,7 @@ Bool.js is an MVC Framework. But is not just any other framework; it gives us ba
 Bool.js also reminds the importance of having a cool workspace structure. That's why it's based on namespaces, leading us to focus on our code rather than focusing on managin complicated references to other files in our project.
 
 ### Can I migrate my projects to bool.js?
-Of course you can. Bool.js is Free Software (not as in a *free* beer, but in *free* as a bird). Just remember to update all of your dependencies, arrange your code in the right project structure (we're very tight at that) and finally, use Node.js `4.0.0` or further versions.
+Of course you can. Bool.js is Free Software (not as in a *free* beer, but in *free* as a bird). Just remember to update all of your dependencies, arrange your code in the right project structure (we're very tight at that) and finally, use Node.js `8.0.0` or further versions.
 
 ### What this about?
 API Core is a Bool.js module designed for implementing the API of framework bootstraping.
