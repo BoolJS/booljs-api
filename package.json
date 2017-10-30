@@ -32,9 +32,10 @@
     "mocha": "^3.3.0"
   },
   "dependencies": {
-    "booljs.globals": "^0.1.0"
+    "booljs.globals": "^0.1.0",
+    "object-injector": "0.0.2"
   },
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=8.0.0"
   }
 }
