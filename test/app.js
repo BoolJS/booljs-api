@@ -1,43 +1,31 @@
-/* global describe, it */
 'use strict';
 
-var API     = require('..')
-,   expect  = require('chai').expect
-,   resolve = require('../lib/utilities/resolve');
+const API = require('..');
+const expect = require('chai').expect;
+const resolve = require('../lib/utilities/resolve');
 
-describe('App', function(){
+describe('App', function () {
     var App = API.App;
 
     describe('Namespaces', () => {
-
-        it('fail on bad forms', (done) => {
-                var badNamespaceApp, secondBadNamespace, thirdBadNamespace;
-
-                try {
-                    badNamespaceApp = App.getInstance("my.bad-namespace.1app");
-                    done(new Error("The namespace checker is failing"));
-                } catch(x){}
-
-                try {
-                    secondBadNamespace = App.getInstance("my.bad_namespace.1app");
-                    done(new Error("The namespace checker is failing"));
-                } catch(x){}
-
-                try {
-                    thirdBadNamespace = App.getInstance("my.:bad_namespace.app2");
-                    done(new Error("The namespace checker is failing"));
-                } catch(x){}
-
-                done();
-            }
-        );
+        it('fail on bad forms', () => {
+            expect(
+                () => App.getInstance('my.bad-namespace.1app')
+            ).to.throw(Error, 'Specified namespace is invalid');
+            expect(
+                () => App.getInstance('my.bad_namespace.1app')
+            ).to.throw(Error, 'Specified namespace is invalid');
+            expect(
+                () => App.getInstance('my.:bad_namespace.app2')
+            ).to.throw(Error, 'Specified namespace is invalid');
+        });
 
         it('create skeletons for good forms', () => {
             var anApp, aSecondApp, aThirdApp, configuration, utilities;
 
-            anApp           = App.getInstance("com.boolinc.dogapi");
-            configuration   = anApp.getComponents().configuration;
-            utilities       = anApp.getComponents().utilities;
+            anApp = App.getInstance('com.boolinc.dogapi');
+            configuration = anApp.getComponents().configuration;
+            utilities = anApp.getComponents().utilities;
 
             expect(anApp.getSkeleton()).to.eql({
                 com: {
@@ -50,7 +38,7 @@ describe('App', function(){
                 }
             });
 
-            aSecondApp      = App.getInstance("com.bool_inc.dogapi");
+            aSecondApp      = App.getInstance('com.bool_inc.dogapi');
             configuration   = aSecondApp.getComponents().configuration;
             utilities       = aSecondApp.getComponents().utilities;
 
@@ -65,7 +53,7 @@ describe('App', function(){
                 }
             });
 
-            aThirdApp       = App.getInstance("com.bool_inc.dog2api");
+            aThirdApp       = App.getInstance('com.bool_inc.dog2api');
             configuration   = aThirdApp.getComponents().configuration;
             utilities       = aThirdApp.getComponents().utilities;
 
@@ -80,7 +68,6 @@ describe('App', function(){
                 }
             });
         });
-
     });
 
     describe('Builder', () => {
@@ -91,25 +78,21 @@ describe('App', function(){
         });
     });
 
-
     describe('Applications Pool', () => {
-
-        it("applications created can be listed", () => {
+        it('applications created can be listed', () => {
             expect(App.listInstances()).to.eql([
-                "com.boolinc.api",
-                "com.boolinc.dogapi",
-                "com.bool_inc.dogapi",
-                "com.bool_inc.dog2api",
-                "com.bool_inc.dog3api"
+                'com.boolinc.api',
+                'com.boolinc.dogapi',
+                'com.bool_inc.dogapi',
+                'com.bool_inc.dog2api',
+                'com.bool_inc.dog3api'
             ]);
         });
 
-        it("applications created in pool can be removed", () => {
-
-            App.removeInstance("com.boolinc.dogapi");
-            App.removeInstance("com.bool_inc.dogapi");
-            App.removeInstance("com.bool_inc.dog2api");
+        it('applications created in pool can be removed', () => {
+            App.removeInstance('com.boolinc.dogapi');
+            App.removeInstance('com.bool_inc.dogapi');
+            App.removeInstance('com.bool_inc.dog2api');
         });
     });
-
 });
