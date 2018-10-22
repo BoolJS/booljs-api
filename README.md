@@ -1,5 +1,3 @@
-# BoolJS API
-
 <p align="center"><img src="https://cdn.rawgit.com/BoolJS/booljs/master/logo.svg" width="50%"></p>
 
 <p align="center">
@@ -17,6 +15,8 @@
 <p align="center">
     <a href="https://npmjs.com/packages/@booljs/api"><img src="https://nodei.co/npm/@booljs/api.png" alt="@booljs/api NPM icon"></a>
 </p>
+
+# BoolJS API
 
 BoolJS API is a BoolJS module designed to define the API that is implemented in the framework bootstrapping. Here you can find the available plugins and base classes that make part of an instance.
 
