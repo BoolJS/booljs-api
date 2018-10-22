@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-    <a href="https://npmjs.com/packages/@booljs/api"><img src="https://nodei.co/npm/@booljs/api.png" alt="@booljs/api NPM icon"></a>
+    <a href="https://npmjs.com/package/@booljs/api"><img src="https://nodei.co/npm/@booljs/api.png" alt="@booljs/api NPM icon"></a>
 </p>
 
 # BoolJS API
