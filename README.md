@@ -1,20 +1,49 @@
-# Bool.js - API Core
+# BoolJS API
 
-[![Build Status](https://travis-ci.org/BoolJS/booljs-api.svg?branch=master)](https://travis-ci.org/BoolJS/booljs-api) [![Dependencies status for bool.js](https://david-dm.org/booljs/booljs-api.svg)](https://david-dm.org/booljs/booljs-api) [![devDependency Status](https://david-dm.org/booljs/booljs-api/dev-status.svg)](https://david-dm.org/booljs/booljs-api#info=devDependencies) [![Code Climate](https://codeclimate.com/github/BoolJS/booljs-api/badges/gpa.svg)](https://codeclimate.com/github/BoolJS/booljs-api) [![Inline docs](http://inch-ci.org/github/booljs/booljs-api.svg?branch=master)](http://inch-ci.org/github/booljs/booljs-api) [![API Doc](https://doclets.io/BoolJS/booljs-api/master.svg)](https://doclets.io/BoolJS/booljs-api/master)
+<p align="center"><img src="https://cdn.rawgit.com/BoolJS/booljs/master/logo.svg" width="50%"></p>
 
-[![Bool.js NPM icon](https://nodei.co/npm/booljs.api.png)](https://npmjs.com/packages/booljs.api)
+<p align="center">
+    [![Build Status](https://travis-ci.org/BoolJS/booljs-api.svg?branch=master)](https://travis-ci.org/BoolJS/booljs-api) [![Dependencies status for bool.js](https://david-dm.org/booljs/booljs-api.svg)](https://david-dm.org/booljs/booljs-api) [![devDependency Status](https://david-dm.org/booljs/booljs-api/dev-status.svg)](https://david-dm.org/booljs/booljs-api#info=devDependencies) [![Code Climate](https://codeclimate.com/github/BoolJS/booljs-api/badges/gpa.svg)](https://codeclimate.com/github/BoolJS/booljs-api) [![Inline docs](http://inch-ci.org/github/booljs/booljs-api.svg?branch=master)](http://inch-ci.org/github/booljs/booljs-api) [![API Doc](https://doclets.io/BoolJS/booljs-api/master.svg)](https://doclets.io/BoolJS/booljs-api/master)
+</p>
 
-[![Join the chat at https://gitter.im/BoolJS/booljs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/BoolJS/booljs-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+<p align="center">
+    [![Bool.js NPM icon](https://nodei.co/npm/@booljs/api.png)](https://npmjs.com/packages/@booljs/api)
+</p>
 
-## FAQ
+BoolJS API is a BoolJS module designed to define the API that is implemented in the framework bootstrapping. Here you can find the available plugins and base classes that make part of an instance.
 
-### What is bool.js?
-Bool.js is an MVC Framework. But is not just any other framework; it gives us back the power to choose how to organize a well-designed project, so we can choose our dependencies, craft our architecture, choose our data connectors, and finally, work based on cool development structures without hesitating about learning the framework as is.
+Here's also located the logic of application instances and stores.
 
-Bool.js also reminds the importance of having a cool workspace structure. That's why it's based on namespaces, leading us to focus on our code rather than focusing on managin complicated references to other files in our project.
+## Install
 
-### Can I migrate my projects to bool.js?
-Of course you can. Bool.js is Free Software (not as in a *free* beer, but in *free* as a bird). Just remember to update all of your dependencies, arrange your code in the right project structure (we're very tight at that) and finally, use Node.js `8.0.0` or further versions.
+API Core comes as a dependency of BoolJS, so —in normal circumstances, there should be no need of installing it as a separate dependency.
 
-### What this about?
-API Core is a Bool.js module designed for implementing the API of framework bootstraping.
+If you need to install it as a part of a plugin, run the command
+
+```bash
+$ npm install @booljs/api@latest --save-peer
+```
+
+## Usage
+
+You'll probably need to use API when building a plugin. In that case, you can call the necessary classes requiring `@booljs/api`. For instance:
+
+```javascript
+'use strict';
+
+const { RouteMiddleware } = require('@booljs/api');
+
+module.exports class MyMiddleware extends RouteMiddleware {
+    // ...
+};
+```
+
+## Contributing
+We're still making -or looking for- a serious contributing document. By now, feel free to contribute the way you usually do in other projects. If this is your first time, follow these steps:
+
+1. Fork us
+2. Make your changes
+3. Commit by each file change, indicating what you did in that file.
+4. Please –¡please!-, don't push until you get the tests completely passing (in this case is just once).
+5. Push and make a pull request, describing what you did in general.
+6. PR will go through an automated revision in Travis CI. If everything is correct, a peer-revision will start.
