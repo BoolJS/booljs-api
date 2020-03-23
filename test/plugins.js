@@ -52,6 +52,7 @@ describe('Plugins', () => {
                         always: true
                     });
                 }
+
                 action (req, res, next) {
                     next();
                 }

@@ -3,6 +3,8 @@
 const API = require('..');
 const expect = require('chai').expect;
 const resolve = require('../lib/utilities/resolve');
+const sleep =
+    time => new Promise(resolve => setTimeout(resolve, time));
 
 describe('App', function () {
     var App = API.App;
@@ -71,13 +73,14 @@ describe('App', function () {
     });
 
     describe('Builder', () => {
-        it('creates an application using dependencies', () => {
-            let instance = App.getInstance('com.bool_inc.dog3api', [
+        it('creates an application using dependencies', async () => {
+            const instance = App.getInstance('com.bool_inc.dog3api', [
                 require.resolve('chai'),
                 'chai', 'chai-as-promised', resolve('example/plugin')
             ]);
 
-            let { utilities } = instance.getComponents();
+            await sleep(500);
+            const { utilities } = instance.getComponents();
             return expect(utilities.get('ChaiAsPromised')).to.be.ok;
         });
     });
