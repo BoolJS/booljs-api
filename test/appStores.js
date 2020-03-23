@@ -2,8 +2,6 @@
 
 const { App } = require('..');
 const expect  = require('chai').expect;
-const sleep =
-    time => new Promise(resolve => setTimeout(resolve, time));
 
 describe('App Stores', () => {
     const instance = App.getInstance('com.boolinc.api');
