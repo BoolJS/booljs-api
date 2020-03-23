@@ -2,6 +2,8 @@
 
 const { App } = require('..');
 const expect  = require('chai').expect;
+const sleep =
+    time => new Promise(resolve => setTimeout(resolve, time));
 
 describe('App Stores', () => {
     const instance = App.getInstance('com.boolinc.api');
@@ -55,16 +57,14 @@ describe('App Stores', () => {
     });
 
     describe('Code stores', () => {
-        it('allows inserting a function into the store', () => {
-            Utilities.set('dbFunction', function () {
+        it('disallow inserting a function into the store', async () => {
+            expect(() => Utilities.set('dbFunction', function () {
                 return {
                     host: 'db.boolinc.co',
                     port: 3306,
                     database: 'myDatabase'
                 };
-            });
-
-            return expect(Utilities.get('dbFunction')).to.exist;
+            })).to.throw();
         });
     });
 });
