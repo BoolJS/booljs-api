@@ -23,14 +23,14 @@ describe('App Stores', () => {
             });
         });
 
-        it(`fails at inserting a function into the store`, () => {
+        it('fails at inserting a function into the store', () => {
             expect(() => Configuration.set('dbFunction', function () {
                 return {
                     host: 'db.boolinc.co',
                     port: 3306,
                     database: 'myDatabase'
                 };
-            })).to.throw(Error, `Configuration can't store executable code`);
+            })).to.throw(Error, 'Configuration can\'t store executable code');
         });
 
         it('Fails at rewriting an object into the store', () => {
@@ -49,13 +49,13 @@ describe('App Stores', () => {
                 port: 3306,
                 database: 'myDatabase'
             })).to.throw(TypeError,
-                `Cannot define property newdb, object is not extensible`
+                'Cannot define property newdb, object is not extensible'
             );
         });
     });
 
     describe('Code stores', () => {
-        it(`allows inserting a function into the store`, () => {
+        it('allows inserting a function into the store', () => {
             Utilities.set('dbFunction', function () {
                 return {
                     host: 'db.boolinc.co',

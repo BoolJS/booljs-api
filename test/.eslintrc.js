@@ -15,5 +15,8 @@ module.exports = {
         indent: [ 'error', 4 ],
         semi: [ 'error', 'always' ],
         'no-multi-spaces': 0
+    },
+    parserOptions: {
+        ecmaVersion: 10
     }
 };

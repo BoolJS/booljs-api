@@ -10,8 +10,8 @@
     "url": "http://bool.js.org/~pandres95"
   },
   "scripts": {
-    "pretest": "eslint **/*.js",
-    "test": "mocha --exit test/*",
+    "pretest": "eslint \"**/*.js\"",
+    "test": "mocha",
     "predoc": "rm -rf doc",
     "doc": "jsdoc -c jsdoc.json"
   },
@@ -20,17 +20,18 @@
     "url": "http://github.com/booljs/booljs-api"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "cross-env": "^5.2.0",
-    "eslint": "^5.7.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "jsdoc": "^3.5.5",
-    "mocha": "^4.1.0"
+    "cross-env": "^5.2.1",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jsdoc": "^3.6.3",
+    "mocha": "^7.1.1"
   },
   "dependencies": {
     "booljs.globals": "^0.1.0",

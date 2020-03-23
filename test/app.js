@@ -72,12 +72,12 @@ describe('App', function () {
 
     describe('Builder', () => {
         it('creates an application using dependencies', () => {
-            let instance = App.getInstance('com.bool_inc.dog3api', [
+            const instance = App.getInstance('com.bool_inc.dog3api', [
                 require.resolve('chai'),
                 'chai', 'chai-as-promised', resolve('example/plugin')
             ]);
 
-            let { utilities } = instance.getComponents();
+            const { utilities } = instance.getComponents();
             return expect(utilities.get('ChaiAsPromised')).to.be.ok;
         });
     });

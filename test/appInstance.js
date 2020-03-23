@@ -4,9 +4,9 @@ const { App } = require('..');
 const expect  = require('chai').expect;
 
 describe('App Instance', () => {
-    let instance = App.getInstance('com.boolinc.api');
-    let configuration = instance.getComponents().configuration;
-    let utilities = instance.getComponents().utilities;
+    const instance = App.getInstance('com.boolinc.api');
+    const configuration = instance.getComponents().configuration;
+    const utilities = instance.getComponents().utilities;
 
     describe('Component Manager', () => {
         it('adds a component in the root of application', () => {
